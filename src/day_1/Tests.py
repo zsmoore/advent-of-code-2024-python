@@ -1,5 +1,7 @@
 import unittest
 from solution import solve_it
+from solution import count_it
+from solution import multiply_it
 
 
 class MyTestCase(unittest.TestCase):
@@ -26,6 +28,16 @@ class MyTestCase(unittest.TestCase):
         col_2 = [4, 3, 5, 3, 9 ,3]
 
         self.assertEqual(solve_it(col_1, col_2), 11)
+
+    def test_map(self):
+        col = [3, 3, 3, 4, 5, 9]
+        print(count_it(col))
+
+    def test_mult(self):
+        col = [3, 3, 3, 4, 5, 9]
+        counted = count_it(col)
+        total = multiply_it([3, 4, 2, 1, 3, 3], counted)
+        print(total)
 
 
 if __name__ == '__main__':

@@ -40,6 +40,11 @@ def read_file(name):
     return col_1, col_2
 
 
+def sort_1(col):
+    col.sort()
+    return col
+
+
 def solve_day_1():
     col_1, col_2 = read_file('input.txt')
 
@@ -49,5 +54,36 @@ def solve_day_1():
     return tot
 
 
+def count_it(col):
+    counts = {}
+    for num in col:
+        if num in counts:
+            counts[num] = counts[num] + 1
+        else:
+            counts[num] = 1
+
+    return counts
+
+
+def multiply_it(col_1, counts):
+    total = 0
+    for num in col_1:
+        if num in counts:
+            multiplied = num * counts[num]
+            total = total + multiplied
+
+    return total
+
+
+def solve_day_2():
+    col_1, col_2 = read_file('input.txt')
+
+    sor = sort_1(col_2)
+    counts = count_it(sor)
+
+    return multiply_it(col_1, counts)
+
+
 if __name__ == "__main__":
     print(solve_day_1())
+    print(solve_day_2())
